@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <title>Edit Profile</title>
+</head>
+<body>
+    <table width="60%">
+        <tr>
+            <td valign="top" width="110px">
+                <ul style="margin-top: 0">
+                    <li><a href="/Kanbas/Account/Profile/index.html">Account</a></li>
+                    <li><a href="#">Dashboard</a></li>
+                    <li><a href="/Kanbas/Courses/Home/home.html">Courses</a></li>
+                    <li><a href="#">Calendar</a></li>
+                    <li><a href="#">Inbox</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="#">Studio</a></li>
+                    <li><a href="#">Commons</a></li>
+                    <li><a href="#">Help</a></li>
+                </ul>
+            </td>
+            <td valign="top" width="200px">
+                <ul style="margin-top: 0">
+                    <li><a href="#">Notifications</a></li>
+                    <li><a href="/Kanbas/Account/Profile/index.html">Profile</a></li>
+                    <li><a href="#">Files</a></li>
+                    <li><a href="#">Settings</a></li>
+                    <li><a href="#">ePortfolios</a></li>
+                    <li><a href="#">Shared Content</a></li>
+                    <li><a href="#">The Hub</a></li>
+                    <li><a href="#">Qwickly Course Tools</a></li>
+                    <li><a href="#">Global Announcements</a></li>
+                </ul>
+            </td>
+            <td valign="top">
+                <h2 style="margin-top: 0;">Sijia Zhong</h2>
+                <label for="name">Name:*</label>
+                <input value="Sijia Zhong" id="name" placeholder="Please enter the name"/>
+                <label for="pronouns">Pronouns:</label>
+                <select>
+                    <option>None</option>
+                    <option>she/her</option>
+                    <option>he/his</option>
+                    <option>others</option>
+                </select>
+                <br/>
+                <br/>
+                <label for="title">Title:</label>
+                <input value="Software Engineer" id="title" placeholder="Please enter the title"/>
+
+                <h3>Contact</h3>
+                <p>
+                    No registered services, you can add some on the <a href="#" style="text-decoration: none;">settings</a> page.
+                </p>
+                
+                <h3>Biography</h3>
+                <p>
+                    Software Engineer
+                </p>
+                <textarea cols="50" rows="3">Software Engineer</textarea>
+
+                <h3>Links</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.linkedin.com/in/sijia-zhong-1a3085282/">LinkedIn</a>
+                        <a href="#">Links to an external site.</a>
+                    </li>
+                </ul>
+
+                <table>
+                    <tr>
+                        <td style="text-align: center;">
+                           <label for="url_title"><h4 style="margin-top: 0px;">Title</h4></label>
+                            <input id="url_title" value="LinkedIn" placeholder="Please enter your url titile"/>
+                        </td>
+                        <td style="text-align: left;">
+                            <label for="url"><h4 style="margin-left: 30%;margin-top: 0px;">URL</h4></label>
+                            <input id="url" value="https://www.linkedin.com/in/sijia-zhong-1a3085282/" placeholder="Please enter your url"/>
+                            <a href="#">Remove</a>
+                        </td>
+                    </tr>
+                </table>
+
+                <button>Add another link</button><br/>
+                <button>Cancel</button>
+                <form action="/Kanbas/Account/Profile/index.html" style="display: inline">
+                    <button>Save Profile</button>
+                </form>
+                <br>
+                <button>Edit Profile</button>
+                <form action="/Kanbas/Account/Profile/index.html" style="display: inline">
+                    <button>Cancel Editing</button>
+                </form>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
+
