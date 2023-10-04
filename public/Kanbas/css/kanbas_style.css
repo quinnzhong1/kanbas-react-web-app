@@ -1,0 +1,311 @@
+.kanbas-nav {
+    width: 85px;
+    height: 100%;
+}
+
+.icon_red {
+    color: #d41a2b;
+}
+
+.icon_white {
+    color: white;
+}
+
+.icon_white_2 {
+    color: #afaeae;
+}
+
+
+.kanbas-nav-item {
+    width: 85px;
+    padding: 0;
+}
+
+.kanbas-nav #account-white .active i {
+    color: #afaeae;
+}
+
+.kanbas-nav #account-white .active div {
+    color: #d41a2b;
+}
+
+.kanbas-nav .active i {
+    color: #d41a2b;
+}
+
+.kanbas-nav .active div {
+    color: #d41a2b;
+}
+
+li.kanbas-nav-item {
+    padding: 5px;
+}
+
+.nav-font-size {
+    font-size: small;
+}
+
+#kanbas-sidebar li {
+    display: block;
+}
+
+i {
+    margin: 5px;
+}
+
+.centered-icon {
+    display: flex;            
+    justify-content: center;
+    align-items: center; 
+}
+
+#profile-title {
+    font-size: larger;
+    padding-left: 10px;
+}
+
+.profile-nav {
+    width: 200px;
+}
+
+.profile-links {
+    color: #d41a2b;
+    padding-left: 10px;
+}
+
+.profile-links span {
+    font-size: large;
+}
+
+.profile-nav .account-nav-active {
+    color: black;
+    border-left: 3px solid black;
+    padding-left: 7px;
+}
+
+.active-left {
+    color: black;
+    border-left: 3px solid black;
+    padding-left: 7px;
+}
+
+.profile-font-size {
+    font-size: 23px;
+}
+
+.profile-edit-button {
+    width: 120px; height: 40px;
+}
+
+.profile-nav a:hover {
+    color: red;
+}
+
+.red-link a:hover{
+    color: red;
+}
+
+.profile-main {
+    width: 480px;
+}
+
+.button-font-black {
+    color: black;
+}
+
+#cards .course-card-style {
+    width: 270px;
+    height: 270px;
+}
+
+.course-card {
+    width: 300px;
+    height: 300px;
+    padding: 15px;
+}
+
+.card-title-style {
+    font-size: medium;
+    color: #1770ab;
+}
+
+.card-text-1 {
+    font-size: medium;
+    color: #6d777e;
+}
+
+.card-text-2 {
+    font-size: small;
+    color: #6d777e;
+}
+
+#breadcrumb-home-title {
+    font-size: larger;
+    padding-left: 0px;
+}
+
+#main-screen {
+    padding: 20px 20px 0px 105px;
+}
+
+.course-button {
+    height: 30px;
+}
+
+.third-side-w {
+    width: 200px;
+}
+
+.home-nav {
+    width: 170px;
+}
+
+.red-link {
+    color:#d41a2b;
+    text-decoration: none;
+}
+
+.third-side-fs {
+    font-size: small;
+}
+
+.third-side-button {
+    --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .6rem;
+}
+
+#main-screen.home {
+    padding: 20px 20px 0px 20px;
+}
+
+.no-wrap-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.prior-z-index {
+    z-index: 99999;
+}
+
+.btn-black {
+    background-color: black;
+    border-color: black; 
+    color: #ffffff;
+}
+
+.btn-black:hover,
+.btn-black:focus,
+.btn-black:active,
+.btn-black.show:focus {
+    background-color: black;
+    border-color: black;
+    outline: none;
+    box-shadow: none;
+}
+
+.btn-black[data-bs-toggle="dropdown"]::after {
+    display: none;
+}
+
+.dropdown-item:active {
+    background-color: red;
+}
+
+.dropdown-menu.show .dropdown-item:active {
+    color: white;
+}
+
+.dropdown-item {
+    color: #d41a2b;
+}
+
+.dropdown-item:hover {
+    color: #d41a2b;
+}
+
+#course-home .list-group-item.content {
+    border-left: 3px solid green;
+    padding-left: 18px;
+}
+
+#course-assignment .list-group-item.content {
+    border-left: 3px solid green;
+    padding-left: 18px;
+}
+
+#course-assignment .list-group {
+    border-radius: 0;
+}
+
+.assignment-sub-font-style {
+    font-size: small;
+    color: grey;
+}
+
+.assignment-title-link {
+    text-decoration: none;
+    color: black;
+}
+
+.assignment-title-link > a:hover {
+    color: grey;
+}
+
+.chevron[data-bs-toggle="dropdown"]::after {
+    display: none;
+}
+
+.edit-assignment-form {
+    width: 400px;
+}
+
+.tight-gap {
+
+    padding: 0;
+    margin: 0;
+}
+
+.grade-sm-ft {
+    font-size: small;
+}
+
+.text-align-middle {
+    vertical-align: middle;
+}
+
+#settings-navigation #main {
+    min-width: 400px;
+    max-width: 500px;
+}
+
+.file-input {
+    display: none;
+}
+
+.custom-file-upload .inner-box{
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f4f4f4;
+}
+
+.file-upload-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;;
+    width: 300px;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.custom-file-upload:hover .inner-box {
+    background-color: #f4f4f4;
+}
+
+.max-width-500 {
+    max-width: 500px;
+}
+
+
