@@ -1,0 +1,17 @@
+.no-wrap-btn {
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.third-side-button {
+    --bs-btn-padding-y: .1rem; --bs-btn-padding-x: .4rem; --bs-btn-font-size: .8rem;
+}
+
+.red-link {
+    color:#d41a2b;
+    text-decoration: none;
+}
+
+.third-side-fs {
+    font-size: small;
+}
