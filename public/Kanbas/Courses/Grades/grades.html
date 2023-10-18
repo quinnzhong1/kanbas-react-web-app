@@ -3,116 +3,357 @@
 <head>
    <meta charset="UTF-8">
    <title>Grades</title>
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+   <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/all.css" rel="stylesheet"/>
+   <link rel="stylesheet" href="../../css/kanbas_style.css">
 </head>
 <body>
-    <table width="100%">
-        <tr>
-            <td valign="top" width="110px">
-                <ul style="margin-top: 0">
-                    <li><a href="/Kanbas/Account/Profile/index.html">Account</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="/Kanbas/Courses/Home/home.html">Courses</a></li>
-                    <li><a href="#">Calendar</a></li>
-                    <li><a href="#">Inbox</a></li>
-                    <li><a href="#">History</a></li>
-                    <li><a href="#">Studio</a></li>
-                    <li><a href="#">Commons</a></li>
-                    <li><a href="#">Help</a></li>
-                </ul>
-            </td>
-            <td valign="top" width="200px">
-                <ul style="margin-top: 0">
-                    <li><a href="/Kanbas/Courses/Home/home.html">Home</a></li>
-                    <li><a href="#">Modules</a></li>
-                    <li><a href="#">Piazza</a></li>
-                    <li><a href="#">Zoom Meetings</a></li>
-                    <li><a href="/Kanbas/Courses/Assignments/index.html">Assignments</a></li>
-                    <li><a href="#">Quizzes</a></li>
-                    <li><a href="/Kanbas/Courses/Grades/grades.html">Grades</a></li>
-                    <li><a href="#">People</a></li>
-                    <li><a href="#">Panopto Video</a></li>
-                    <li><a href="#">Discussions</a></li>
-                    <li><a href="#">Annoucements</a></li>
-                    <li><a href="#">Pages</a></li>
-                    <li><a href="#">Files</a></li>
-                    <li><a href="#">Rubrics</a></li>
-                    <li><a href="#">Outcomes</a></li>
-                    <li><a href="#">Collaborations</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="/Kanbas/Courses/Settings/courseDetails.html">Settings</a></li>
-                </ul>
-            </td>
-            <td valign="top">
-                <select>
-                    <option>Gradebook</option>
-                    <option>Gradebook1</option>
-                </select>
-                <button>Import</button>
-                <select>
-                    <option>Export</option>
-                    <option>Unpublish</option>
-                </select>
-                <button>Configure</button>
-                <br />
+    <div class="d-flex flex-row" id="course-grades">
+        <div class="flex-column kanbas-nav d-none d-lg-block" style="position: fixed;">
+            <a class="nav-link kanbas-nav-item centered-icon bg-black" href="/Kanbas/Dashboard/dashboard.html">
+                <img src="/images/neu_logo.png" alt="" style="width: 65px; height: 65px;">
+            </a>
+            <ul id="kanbas-sidebar" class="nav nav-justified mb-auto text-center flex-column bg-black">
+                <li id="account-white" class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="/Kanbas/Account/Profile/index.html">
+                        <i class="fa-regular fa-circle-user fa-2x icon_white"></i>
+                        <div class="text-center nav-font-size icon_white">Account</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="/Kanbas/Dashboard/dashboard.html">
+                        <i class="fa-solid fa-gauge fa-2x icon_red"></i>
+                        <div class="icon_white text-center nav-font-size">Dashboard</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item bg-white">
+                    <a class="nav-link kanbas-nav-item active" href="/Kanbas/Courses/Home/home.html">
+                        <i class="fa-solid fa-book fa-2x icon_red"></i>
+                        <div class="icon_white text-center nav-font-size">Courses</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="#">
+                        <i class="fa-solid fa-calendar-days fa-2x icon_red"></i>
+                        <div class="icon_white text-center nav-font-size">Calendar</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="#">
+                        <i class="fa-solid fa-box-open fa-2x icon_red"></i>
+                        <div class="icon_white text-center nav-font-size">Inbox</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="#">
+                        <i class="fa-regular fa-clock fa-2x icon_red"></i>
+                        <div class="icon_white text-center nav-font-size">History</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="#">
+                        <i class="fa-solid fa-square-caret-right fa-2x icon_red"></i>
+                        <div class="icon_white text-center nav-font-size">Studio</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="#">
+                        <i class="fa-solid fa-right-from-bracket fa-2x icon_red"></i>
+                        <div class="icon_white text-center nav-font-size">Commons</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="#">
+                        <i class="fa-regular fa-circle-question fa-2x icon_red"></i>
+                        <div class="icon_white text-center nav-font-size">Help</div>
+                    </a>
+                </li>
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="#">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="flex-column kanbas-nav d-none d-lg-block">
+            <ul id="kanbas-sidebar" class="nav nav-justified mb-auto text-center flex-column bg-white">
+                <li class="nav-item kanbas-nav-item">
+                    <a class="nav-link kanbas-nav-item" href="#">
+                        <br>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="flex-column p-0 m-0 flex-fill">
+            <div class="w-100 d-block d-lg-none prior-z-index" style="height: 48px;">
+                <div style="position: fixed;" class="w-100 flex-row align-items-center flex-fill d-flex bg-black prior-z-index">
+                    <span class="dropdown">
+                        <button class="btn dropdown-toggle btn-sm ms-1 no-wrap-btn btn-black" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                            <i class="fa-solid fa-bars fa-lg icon_white"></i>
+                        </button>
+
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="/Kanbas/Account/Profile/index.html"><i class="fa-regular fa-circle-user"></i>Account</a></li>
+                          <li><a class="dropdown-item" href="/Kanbas/Dashboard/dashboard.html"><i class="fa-solid fa-gauge"></i>Dashboard</a></li>
+                          <li><a class="dropdown-item" href="/Kanbas/Courses/Home/home.html"><i class="fa-solid fa-book"></i>Courses</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-calendar-days"></i>Calendar</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-box-open"></i>inbox</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fa-regular fa-clock"></i>History</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-square-caret-right"></i>Studio</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-right-from-bracket"></i>Commons</a></li>
+                          <li><a class="dropdown-item" href="#"><i class="fa-regular fa-circle-question"></i>Help</a></li>
+                        </ul>
+                    </span>
+                    
+                    <div class="flex-column flex-grow-1">
+                        <div class="icon_white text-center">
+                            CS5610.17387.202410 Fall 2023 SEC 3
+                        </div>
+                        <div class="icon_white text-center">
+                            Grades
+                        </div>
+                    </div>
+
+                    <i class="fa-solid fa-glasses icon_white"></i>
+                    <!-- <i class="fa-solid fa-chevron-down icon_white" style="margin-right: 12px;"></i> -->
+
+                    <span class="dropdown">
+                        <button class="btn dropdown-toggle btn-sm ms-1 no-wrap-btn btn-black" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                            <i class="fa-solid fa-chevron-down icon_white"></i>
+                        </button>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/Kanbas/Courses/Home/home.html"><i class="fa-solid fa-house-user"></i>Home</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-diagram-project"></i>Modules</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i>Piazza</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i>Zoom Meetings</a></li>
+                            <li><a class="dropdown-item" href="/Kanbas/Courses/Assignments/index.html"><i class="fa-regular fa-pen-to-square"></i>Assignments</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-rocket"></i>Quizzes</a></li>
+                            <li><a class="dropdown-item" href="/Kanbas/Courses/Grades/grades.html"><i class="fa-solid fa-book"></i>Grades</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-user-group"></i>People</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-plug"></i>Panopto Video</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-regular fa-comments"></i>Discussions</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bullhorn"></i>Annoucements</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-file-lines"></i>Pages</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-regular fa-folder"></i>Files</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-clipboard-list"></i>Rubrics</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-bullseye"></i>Outcomes</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-regular fa-circle"></i>Collaborations</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-book-bookmark"></i>Syllabus</a></li>
+                            <li><a class="dropdown-item" href="/Kanbas/Courses/Settings/courseDetails.html"><i class="fa-solid fa-gear"></i>Settings</a></li>
+                          </ul>
+                    </span>
+                </div>
+            </div>
+
+            
+
+            <div class="flex-column flex-fill home" id="main-screen">
+
+                <div class="align-items-center flex-row flex-fill d-none d-lg-flex justify-content-center">
+
+                    <i class="fa-solid fa-bars fa-lg icon_red" style="margin-left: 9px;"></i>
+
+                    <span class="flex-grow-1 me-5 flex-nowrap">
+                        <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb" class="mb-0 ps-3">
+                            <ol class="breadcrumb m-0 flex-nowrap" id="breadcrumb-home-title">
+                              <li class="breadcrumb-item red-link no-wrap-btn"><a href="/Kanbas/Courses/Home/home.html" style="text-decoration: None;" class="icon_red flex-nowrap d-flex">CS5610.17387.202410 Fall 2023 SEC 3</a></li>
+                              <li class="breadcrumb-item active flex-nowrap no-wrap-btn" aria-current="page">Grades</li>
+                            </ol>
+                          </nav>
+                    </span>
+                </div>
     
-                <h3>Student Names</h3>
-                <input title="Type the student name" placeholder="Search Students" />
+                <hr class="d-none d-lg-block">
     
-                <h3>Assignment Names</h3>
-                <input title="Type the assignment name" placeholder="Search Assignments" />
-                
-                <br />
-                <br />
-                <button>Apply Filters</button>
-                
-                <br />
-                <br />
-                <table border="1" width="100%">
-                    <thead>
-                        <tr>
-                            <th>Student Name</th>
-                            <th>A1 - SETUP<br />out of 100</th>
-                            <th>A2 - HTML<br />out of 100</th>
-                            <th>A3 - CSS<br />out of 100</th>
-                            <th>A4 - BOOTSTRAP<br />out of 100</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr align="center">
-                            <td align="left">Alice Wonderland</td>
-                            <td>98</td>
-                            <td>89</td>
-                            <td>87</td>
-                            <td>90</td>
-                        </tr>
-                        <tr align="center">
-                            <td align="left">Princess leia</td>
-                            <td>98</td>
-                            <td>80</td>
-                            <td>87</td>
-                            <td>86</td>
-                        </tr>
-                        <tr align="center">
-                            <td align="left">Luke Skywalker</td>
-                            <td><input
-                                id="score"
-                                placeholder="Please enter the score"
-                                value="99" style="text-align: center" size="6"></td>
-                            <td>88</td>
-                            <td>97</td>
-                            <td>82</td>
-                        </tr>
-                        <tr align="center">
-                            <td align="left">Han Solo</td>
-                            <td>83</td>
-                            <td>99</td>
-                            <td>94</td>
-                            <td>98</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
-    </table>
+                <div class="d-flex flex-row flex-fill">
+                    <div class="flex-column home-nav d-none d-lg-block">
+                        <ul class="nav flex-column">
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="/Kanbas/Courses/Home/home.html"><span class="flex-wrap">Home</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justifyc-ontent-left profile-links" href="#"><span class="flex-wrap">Modules</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Piazza</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Zoom Meetings</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="/Kanbas/Courses/Assignments/index.html"><span class="flex-wrap">Assignments</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Quizzes</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links active active-left" href="/Kanbas/Courses/Grades/grades.html"><span class="flex-wrap">Grades</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">People</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Panopto Video</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Discussions</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Annoucements</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Pages</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Files</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Rubrics</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Outcomes</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Collaborations</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="#"><span class="flex-wrap">Syllabus</span></a></li>
+                            <li class="nav-item red-link"><a class="nav-link justify-content-left profile-links" href="/Kanbas/Courses/Settings/courseDetails.html"><span class="flex-wrap">Settings</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="flex-column justify-content-center p-3 pt-0 flex-fill">
+
+                        <div class="flex-row d-flex justify-content-end flex-nowrap w-100">
+                            <button type="button" class="btn btn-secondary btn-sm ms-1 no-wrap-btn">
+                                <i class="fa-solid fa-file-import"></i>
+                                Import
+                            </button>
+
+                            <span class="dropdown">
+                                <button class="btn dropdown-toggle btn-sm ms-1 no-wrap-btn btn-secondary" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
+                                    <i class="fa-solid fa-file-import fa-flip-horizontal"></i>
+                                    Export
+                                </button>
+        
+                                <ul class="dropdown-menu">
+                                  <li><a class="dropdown-item" href="#">pdf</a></li>
+                                </ul>
+                            </span>
+
+                            <button class="btn btn-sm ms-1 no-wrap-btn btn-secondary" type="button">
+                                <i class="fa-solid fa-gear p-0"></i>
+                            </button>
+                            
+                        </div>
+
+                        <div class="flex-row d-flex w-100 my-2">
+                            <div class="flex-column w-50 fw-bold me-1">
+                                <label for="student-names" class="form-label">Student Names</label>
+                            </div>
+                            <div class="flex-column w-50 fw-bold ms-1">
+                                <label for="assignment-names" class="form-label">Assignment Names</label>
+                            </div>
+                        </div>
+
+                        <div class="flex-row d-flex w-100 mb-2">
+                            <div class="fw-bold me-1 input-group">
+                                <span class="input-group-text bg-white border-end-0" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" id="student-names" class="form-control border-start-0 border-end-0" placeholder="Search Students" aria-describedby="basic-addon1">
+                                <span class="input-group-text bg-white border-start-0" id="basic-addon3"><i class="fa-solid fa-chevron-up"></i></span>
+                            </div>
+                            <div class="fw-bold ms-1 input-group">
+                                <span class="input-group-text bg-white border-end-0" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" id="assignment-names" class="form-control border-start-0 border-end-0" placeholder="Search Assignments" aria-describedby="basic-addon1">
+                                <span class="input-group-text bg-white border-start-0" id="basic-addon4"><i class="fa-solid fa-chevron-up"></i></span>
+                            </div>
+                        </div>
+
+                        <div class="flex-row d-flex w-100 mb-2">
+                            <button class="btn btn-secondary no-wrap-btn">
+                                <i class="fa-solid fa-filter"></i>
+                                Apply Filters
+                            </button>
+                        </div>
+
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="table-secondary">
+                                    <th class="text-left text-align-middle">Student Name</th>
+                                    <th class="text-center text-align-middle">A1 SETUP <div class="fw-light grade-sm-ft">Out of 100</div></th>
+                                    <th class="text-center text-align-middle">A2 HTML<div class="fw-light grade-sm-ft">Out of 100</div></th>
+                                    <th class="text-center text-align-middle">A3 CSS<div class="fw-light grade-sm-ft">Out of 100</div></th>
+                                    <th class="text-center text-align-middle">A4 BOOTSTRAP<div class="fw-light grade-sm-ft">Out of 100</div></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Doxa Asibey</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">89.95%</td>
+                                    <td class="text-center text-align-middle">98.65%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Thuytien Bui</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">
+                                        <input
+                                        class="form-control text-center form-control-sm"
+                                        id="score"
+                                        placeholder="Please enter the score"
+                                        value="91.5%" size="6">
+                                    </td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Yetong Chen</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">97%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Zhenyu Chen</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">98.64%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Yung-Shin chien</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">99.32%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Basil Coughlan</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Rachel Dao</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Lana Do</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Kartikey Dwivedi</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Jiarong Feng</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">94.24%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                <tr class="table-light">
+                                    <td class="icon_red fw-bold text-align-middle">Saurabh Sunil Gade</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                    <td class="text-center text-align-middle">100%</td>
+                                </tr>
+                                
+                            </tbody>
+                        </table>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
