@@ -13,9 +13,9 @@ function Kanbas() {
       </div>
       <div className="flex-column flex-fill main-screen">
         <Routes>
-          <Route path="/" element={<Navigate to="Dashboard" />} />
+          <Route path="/" element={<Navigate to="Dashboard/*" />} />
           <Route path="Account" element={<h1>Account</h1>} />
-          <Route path="Dashboard" element={<Dashboard />} />
+          <Route path="Dashboard/*" element={<Dashboard />} />
           <Route path="Courses/:courseId/*" element={<Courses />} />
           <Route path="Courses/*" element={
           <Routes>

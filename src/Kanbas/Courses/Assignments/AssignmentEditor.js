@@ -28,7 +28,6 @@ function AssignmentEditor() {
             </button>
         </span>
      </div>
-      {/* <h2>Assignment Name</h2> */}
 
         <hr className="mt-3"/>
         
@@ -43,11 +42,7 @@ function AssignmentEditor() {
         Cancel
     
       </Link>
-      {/* <Link onClick={handleSave}
-            to={`/Kanbas/Courses/${courseId}/Assignments`}
-            className="btn btn-success me-2">
-        Save
-      </Link> */}
+
       <button onClick={handleSave} className="btn btn-danger me-2 float-end">
         Save
       </button>
