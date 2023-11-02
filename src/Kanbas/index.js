@@ -15,7 +15,7 @@ function Kanbas() {
       name: "New Course",      number: "New Number",
       startDate: "2023-09-10", endDate: "2023-12-15",
     });
-  console.log(courses);
+  // console.log(courses);
   const updateCourse = () => {
       setCourses(
         courses.map((c) => {
@@ -32,7 +32,7 @@ function Kanbas() {
   const addNewCourse = () => {
       setCourses([...courses,
                 { ...course,
-                  _id: new Date().getTime() }]);
+                  _id: (new Date().getTime()).toString() }]);
     };
   const deleteCourse = (courseId) => {
       setCourses(courses.filter((course) => course._id !== courseId));

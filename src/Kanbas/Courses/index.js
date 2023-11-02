@@ -18,6 +18,7 @@ function Courses({courses}) {
   const {pathname} = useLocation();
   const [empty, kanbasTitle, coursesTitle, id, screen, assignmentId] = pathname.split("/");
   const course = courses.find((course) => course._id === courseId);
+  // console.log(courses);
   return (
     <div>
       

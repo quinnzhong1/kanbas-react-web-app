@@ -1,14 +1,31 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
-import db from "../../Database";
+// import db from "../../Database";
 import "./index.css";
 import {BsThreeDotsVertical} from "react-icons/bs";
+import { useSelector, useDispatch } from "react-redux";
+import { 
+  deleteAssignment,
+  selectAssignment,
+  setAssignment,
+}
+from "./assignmentsReducer";   
 
 function Assignments() {
   const { courseId } = useParams();
-  const assignments = db.assignments;
+  const assignment = useSelector((state) => state.assignmentsReducer.assignment);
+  const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+  const dispatch = useDispatch();
   const courseAssignments = assignments.filter(
     (assignment) => assignment.course === courseId);
+  const handleDeleteClick = (assignment) => {
+    const confirmDelete = window.confirm('Do you want to delete the assignment?');
+    if (confirmDelete) {
+      dispatch(deleteAssignment(assignment._id));
+    } else {dispatch(setAssignment)}
+  };
+
+  
   return (
     <div className="flex-row flex-fill me-4" style={{minWidth: 470}}>
       {/* <h2>Assignments for course {courseId}</h2> */}
@@ -26,10 +43,10 @@ function Assignments() {
                 + Group
             </button>
             
-            <button type="button" className="btn btn-danger btn-sm ms-1 no-wrap-btn">
+            <Link type="button" className="btn btn-danger btn-sm ms-1 no-wrap-btn d-flex align-items-center" to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}>
                 <i class="fa-solid fa-plus"></i>
-                + Modules
-            </button>
+                + Assignment
+            </Link>
 
             <button className="btn btn-sm ms-1 no-wrap-btn btn-secondary chevron" type="button" data-bs-toggle="dropdown" aria-expanded="false" >
                 <BsThreeDotsVertical/>
@@ -43,13 +60,26 @@ function Assignments() {
         
       <div className="list-group">
         <div className="list-group-item list-group-item-secondary fw-bold">Assignments for {courseId}</div>
+        
         {courseAssignments.map((assignment) => (
+          <div className="list-group-item d-flex justify-content-between">
           <Link
             key={assignment._id}
+            onClick={()=> {
+              dispatch(selectAssignment(assignment))}} 
             to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-            className="list-group-item ps-5">
+            className="ps-5 d-flex align-items-center justify-content-between assignment_style">
             {assignment.title}
           </Link>
+          <div className="d-inline-block float-end">
+          <button onClick={(event)=> {
+          event.preventDefault();
+          handleDeleteClick(assignment)}} 
+          className="btn  btn-danger">
+            Delete
+          </button>
+        </div>
+          </div>
         ))}
       </div>
     </div>
