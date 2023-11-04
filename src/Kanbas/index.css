@@ -1,0 +1,12 @@
+.kanbas-nav {
+    position: fixed;
+}
+
+.main-screen {
+    padding: 20px 20px 0px 120px
+}
+
+#breadcrumb-home-title {
+    font-size: larger;
+    padding-left: 0px;
+}
