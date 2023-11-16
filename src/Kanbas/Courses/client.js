@@ -35,7 +35,7 @@ export const updateCourse = async (course) => {
 
 export const addNewCourse = async (course) => {
   const response = await axios.post(
-    "${COURSES_URL}",
+    `${COURSES_URL}`,
     course
   );
   return response.data;
