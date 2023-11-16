@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 // import db from "../../Database";
 import "./index.css";
@@ -8,20 +8,32 @@ import {
   deleteAssignment,
   selectAssignment,
   setAssignment,
+  setAssignments,
 }
-from "./assignmentsReducer";   
+from "./assignmentsReducer";
+import * as client from "./client"; 
 
 function Assignments() {
   const { courseId } = useParams();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    client.findModulesForAssignment(courseId)
+      .then((assignments) =>
+        dispatch(setAssignments(assignments))
+    );
+  }, [courseId]);
+
   const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const assignments = useSelector((state) => state.assignmentsReducer.assignments);
-  const dispatch = useDispatch();
-  const courseAssignments = assignments.filter(
-    (assignment) => assignment.course === courseId);
+
+  // const courseAssignments = assignments.filter(
+  //   (assignment) => assignment.course === courseId);
+
   const handleDeleteClick = (assignment) => {
     const confirmDelete = window.confirm('Do you want to delete the assignment?');
     if (confirmDelete) {
-      dispatch(deleteAssignment(assignment._id));
+      client.deleteAssignment(assignment._id).then((status) => {
+        dispatch(deleteAssignment(assignment._id)) })
     } else {dispatch(setAssignment)}
   };
 
@@ -61,7 +73,7 @@ function Assignments() {
       <div className="list-group">
         <div className="list-group-item list-group-item-secondary fw-bold">Assignments for {courseId}</div>
         
-        {courseAssignments.map((assignment) => (
+        {assignments.map((assignment) => (
           <div className="list-group-item d-flex justify-content-between">
           <Link
             key={assignment._id}

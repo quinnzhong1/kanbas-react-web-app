@@ -1,4 +1,7 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import * as client from "./client";
 import { useParams, Routes, Route, Navigate, useLocation, Link} from "react-router-dom";
 // import JsonPre from "../../Labs/a3/JsonPre";
 import db from "../Database";
@@ -12,13 +15,24 @@ import {FaBars} from "react-icons/fa";
 import { BiGlasses } from "react-icons/bi";
 import "./index.css";
 
-function Courses({courses}) {
+function Courses() {
   const { courseId } = useParams();
-  if (courseId === null) courseId = "RS101";
+  const [course, setCourse] = useState({});
+  const fetchCourse = async () => {
+    const course = await client.fetchCourse(courseId);
+    setCourse(course);
+  };
+
+  // if (courseId === null) courseId = "RS101";
   const {pathname} = useLocation();
   const [empty, kanbasTitle, coursesTitle, id, screen, assignmentId] = pathname.split("/");
-  const course = courses.find((course) => course._id === courseId);
+  // const course = courses.find((course) => course._id === courseId);
   // console.log(courses);
+
+  useEffect(() => {
+    fetchCourse();
+  }, []);
+  
   return (
     <div>
       

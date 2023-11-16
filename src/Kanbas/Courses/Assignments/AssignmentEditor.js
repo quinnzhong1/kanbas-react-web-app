@@ -1,21 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 // import db from "../../Database";
 import {BsThreeDotsVertical} from "react-icons/bs";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { useSelector, useDispatch} from "react-redux";
-import { addAssignment, selectAssignment, updateAssignment, setAssignment } from "./assignmentsReducer";
+import { addAssignment, selectAssignment, updateAssignment, setAssignment, setAssignments, }
+from "./assignmentsReducer";
+import * as client from "./client"; 
 
 function AssignmentEditor() {
   const { assignmentId } = useParams();
-  const assignment = useSelector((state) => state.assignmentsReducer.assignment);
   const { courseId } = useParams();
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    client.findModulesForAssignment(courseId)
+      .then((assignments) =>
+        dispatch(setAssignments(assignments))
+    );
+  }, [courseId]);
+
+  const assignment = useSelector((state) => state.assignmentsReducer.assignment);
+  const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+
+  const handleAddAssignment = () => {
+    client.createAssignment(courseId, assignment).then((assignment) => {
+      dispatch(addAssignment(assignment));
+    });
+  };
+  const handleUpdateAssignment = async (assignmentId) => {
+    const status = await client.updateAssignment(assignmentId, assignment);
+    dispatch(updateAssignment(assignment));
+  };
+
   const navigate = useNavigate();
   const handleSave = () => {
     console.log("Actually saving assignment");
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
-  const dispatch = useDispatch();
+
   const [text, setText] = useState("New Assignment Description");
 
   return (
@@ -70,10 +93,12 @@ function AssignmentEditor() {
     
       </Link>
 
-      <button onClick={()=>{if(assignment._id === undefined) 
-            {dispatch(addAssignment({...assignment, course: courseId}));} 
-            else {dispatch(updateAssignment(assignment))};
-            handleSave()}} className="btn btn-success me-2">
+      <button onClick={
+            ()=>{if(assignment._id === undefined) 
+            handleAddAssignment();
+            else {handleUpdateAssignment(assignmentId)};
+            handleSave()}
+            } className="btn btn-success me-2">
             Save
       </button>  
     </div>
