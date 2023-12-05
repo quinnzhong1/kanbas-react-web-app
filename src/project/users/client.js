@@ -1,5 +1,5 @@
 import axios from "axios";
-export const BASE_API = process.env.REACT_APP_BASE_API_URL || "http://localhost:4000";
+export const BASE_API = "https://kanbas-node-server-app-zhong-54e906c416a3.herokuapp.com/" || "http://localhost:4000";
 export const USERS_API = `${BASE_API}/api/users`;
 const request = axios.create({
   withCredentials: true,
